@@ -1,0 +1,22 @@
+apply plugin: 'java-library'
+apply plugin: 'com.novoda.bintray-release'
+
+dependencies {
+    implementation project(':pretty-annotation')
+    implementation 'com.squareup:javapoet:1.10.0'
+}
+
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+publish {
+    userOrg = 'nullpointerguy'
+    groupId = 'com.karthik.pretty_compiler'
+    artifactId = 'pretty-compiler'
+    publishVersion = '0.4.0'
+    desc = 'Compiler for pretty annotation'
+    website = 'https://github.com/NULLPointerGuy/PrettyExtras'
+    bintrayUser= properties.getProperty("bintray.user")
+    bintrayKey = properties.getProperty("bintray.apikey")
+}
