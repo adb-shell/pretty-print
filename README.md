@@ -58,6 +58,6 @@ For now you can add it as `maven` dependency, in future we will be including thi
 and finally we add pretty print as dependency.
 
 ```groovy
-implementation 'com.karthik.pretty_annotation:pretty-annotation:0.4.0'
-annotationProcessor 'com.karthik.pretty_compiler:pretty-compiler:0.4.0'
+implementation 'com.karthik.pretty_annotation:pretty-annotation:0.4.1'
+annotationProcessor 'com.karthik.pretty_compiler:pretty-compiler:0.4.1'
 ```
