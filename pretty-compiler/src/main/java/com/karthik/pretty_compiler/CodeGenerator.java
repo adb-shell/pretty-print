@@ -65,7 +65,7 @@ public class CodeGenerator {
                 .addModifiers(Modifier.PRIVATE, Modifier.STATIC)
                 .addParameter(BUNDLE, "bundle")
                 .addParameter(String[].class, "headers")
-                .addCode("" + "if(bundle.isEmpty()){\n"
+                .addCode("" + "if(bundle==null || bundle.isEmpty()){\n"
                         + "\treturn;\n"
                         + "}\n")
                 .addStatement("$T[][] valueKeys = new $T[bundle.keySet().size()][2]", String.class, String.class)
