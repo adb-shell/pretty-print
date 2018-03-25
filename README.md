@@ -1,4 +1,4 @@
-# pretty-print
+# pretty-print    <img src="https://img.shields.io/badge/0.41-release-green.svg" alt="">
 
 ### Annotation Processor to pretty print your Activity / Fragment extras.
 
