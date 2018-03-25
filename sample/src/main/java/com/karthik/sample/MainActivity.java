@@ -46,6 +46,20 @@ public class MainActivity extends AppCompatActivity {
                 fragmentTransaction.commit();
             }
         });
+
+
+        findViewById(R.id.clickKotlin).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,
+                        KotlinActivity.class);
+                intent.putExtra("string","string value");
+                intent.putExtra("int",12);
+                intent.putExtra("float",12.f);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

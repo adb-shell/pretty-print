@@ -49,15 +49,21 @@ Before starting you will need to add [fliptables](https://github.com/JakeWharton
 ```groovy
 implementation 'com.jakewharton.fliptables:fliptables:x.x.x'
 ```
-For now you can add it as `maven` dependency, in future we will be including this in `JCenter`
+For now you can add it as `JCenter` or `maven` dependency, in case `maven` add it as below.  
 
 ```groovy
  maven { url 'https://dl.bintray.com/nullpointerguy/maven/' }
 ```
 
-and finally we add pretty print as dependency.
-
+### Java
 ```groovy
 implementation 'com.karthik.pretty_annotation:pretty-annotation:0.4.1'
 annotationProcessor 'com.karthik.pretty_compiler:pretty-compiler:0.4.1'
+```
+### Kotlin
+replace `annotationProcessor` with `kapt` as shown below
+
+```groovy
+implementation 'com.karthik.pretty_annotation:pretty-annotation:0.4.1'
+kapt 'com.karthik.pretty_compiler:pretty-compiler:0.4.0'
 ```
