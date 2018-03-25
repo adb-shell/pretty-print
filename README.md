@@ -15,20 +15,9 @@ public class MyActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		int id = 123;
-		String title = "test";
+		String title = "test";		
 		
-		// Using the generated Builder
-		Fragment fragment = 
-			new MyFragmentBuilder(id, title)
-			.build();
-		
-		
-		// Fragment Transaction
-		getFragmentManager()
-			.beginTransaction()
-			.replace(R.id.container, fragment)
-			.commit();
-		
+		//call to pretty print extras.		
 		PrettyPrinterExtras.MainActivityprintExtras(getIntent().getExtras());	
 	}
 }
