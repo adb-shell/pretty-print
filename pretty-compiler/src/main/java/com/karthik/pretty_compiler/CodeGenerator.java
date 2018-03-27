@@ -32,6 +32,8 @@ public class CodeGenerator {
 
     private static final ClassName BUNDLE = ClassName.get("android.os",
             "Bundle");
+    private static final ClassName LOG = ClassName.get("android.util",
+            "Log");
     private static final ClassName FLIPTABLE = ClassName.get("com.jakewharton.fliptables",
             "FlipTable");
 
@@ -74,7 +76,8 @@ public class CodeGenerator {
                 .addCode("col=0;\n valueKeys[row][col] = key;\n ++col;\n " +
                         "valueKeys[row][col] = bundle.get(key).toString();\n ++row;\n")
                 .endControlFlow()
-                .addStatement("$T.out.println($T.of(headers,valueKeys))",System.class,FLIPTABLE)
+                .addCode("if(BuildConfig.DEBUG)\n")
+                .addStatement("$T.d($S,$T.of(headers,valueKeys))",LOG,"pretty",FLIPTABLE)
                 .returns(void.class)
                 .build();
 
