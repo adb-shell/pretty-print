@@ -65,5 +65,5 @@ replace `annotationProcessor` with `kapt` as shown below
 
 ```groovy
 implementation 'com.karthik.pretty_annotation:pretty-annotation:0.4.1'
-kapt 'com.karthik.pretty_compiler:pretty-compiler:0.4.0'
+kapt 'com.karthik.pretty_compiler:pretty-compiler:0.4.1'
 ```
