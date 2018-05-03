@@ -28,10 +28,14 @@ public class CodeGenerator {
     private static final String EXTRAHEADER = "ClassName";
     private static final String PRINTERCLASSNAME = "PrettyPrinterExtras";
     private static final String PRINTERMETHODNAME = "printExtras";
+    private static final String PRINTBUNDLESIZE = "getBundleSize";
+    private static final String SIZE = "SIZE(Bytes)";
 
 
     private static final ClassName BUNDLE = ClassName.get("android.os",
             "Bundle");
+    private static final ClassName PARCEL = ClassName.get("android.os",
+            "Parcel");
     private static final ClassName LOG = ClassName.get("android.util",
             "Log");
     private static final ClassName FLIPTABLE = ClassName.get("com.jakewharton.fliptables",
@@ -63,6 +67,17 @@ public class CodeGenerator {
                                                Elements elementUtils,
                                                Filer filer) throws IOException {
 
+        MethodSpec bundleSize = MethodSpec.methodBuilder(PRINTBUNDLESIZE)
+                .addModifiers(Modifier.PRIVATE,Modifier.STATIC)
+                .addParameter(BUNDLE, "bundle")
+                .addCode("$T parcel = $T.obtain();\n"
+                        +"byte[] bytes;\n"+"parcel.writeBundle(bundle);\n"
+                        +"bytes = parcel.marshall();\n"
+                        +"parcel.recycle();\n"
+                        +"return $T.valueOf(bytes.length);\n",PARCEL,PARCEL,String.class)
+                .returns(String.class)
+                .build();
+
         MethodSpec printer = MethodSpec.methodBuilder(PRINTERMETHODNAME)
                 .addModifiers(Modifier.PRIVATE, Modifier.STATIC)
                 .addParameter(BUNDLE, "bundle")
@@ -70,12 +85,14 @@ public class CodeGenerator {
                 .addCode("" + "if(bundle==null || bundle.isEmpty()){\n"
                         + "\treturn;\n"
                         + "}\n")
-                .addStatement("$T[][] valueKeys = new $T[bundle.keySet().size()][2]", String.class, String.class)
+                .addStatement("$T[][] valueKeys = new $T[bundle.keySet().size()+1][2]", String.class, String.class)
                 .addStatement("int row=0,col=0")
                 .beginControlFlow("for(String key:bundle.keySet())")
                 .addCode("col=0;\n valueKeys[row][col] = key;\n ++col;\n " +
                         "valueKeys[row][col] = bundle.get(key).toString();\n ++row;\n")
                 .endControlFlow()
+                .addCode("valueKeys[bundle.keySet().size()][0]=$S;\n",SIZE)
+                .addCode("valueKeys[bundle.keySet().size()][1]=getBundleSize(bundle);\n\n")
                 .addCode("if(BuildConfig.DEBUG)\n")
                 .addStatement("$T.d($S,$T.of(headers,valueKeys))",LOG,"pretty",FLIPTABLE)
                 .returns(void.class)
@@ -86,6 +103,7 @@ public class CodeGenerator {
                 .classBuilder(PRINTERCLASSNAME)
                 .addJavadoc("Generated code to print extras,from Activity/Fragment\n")
                 .addMethods(methods)
+                .addMethod(bundleSize)
                 .addMethod(printer)
                 .build();
 
