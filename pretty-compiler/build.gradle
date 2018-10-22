@@ -1,9 +1,11 @@
 apply plugin: 'java-library'
+apply plugin: 'kotlin'
 apply plugin: 'com.novoda.bintray-release'
 
 dependencies {
     implementation project(':pretty-annotation')
     implementation 'com.squareup:javapoet:1.10.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 
