@@ -44,12 +44,7 @@ and thats it, all the extras will be printed in your logcat as below.
 ```
 
 ### Adding the dependency
-Before starting you will need to add [fliptables](https://github.com/JakeWharton/flip-tables) dependency.By default pretty-print does not package this dependency. 
-
-```groovy
-implementation 'com.jakewharton.fliptables:fliptables:x.x.x'
-```
-For now you can add it as `JCenter` or `maven` dependency, in case `maven` add it as below.  
+Add it as `maven` dependency, in case `maven` add it as below.  
 
 ```groovy
  maven { url 'https://dl.bintray.com/nullpointerguy/maven/' }
