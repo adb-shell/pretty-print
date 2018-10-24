@@ -1,4 +1,4 @@
-# pretty-print    <img src="https://img.shields.io/badge/0.41-release-green.svg" alt="">
+# pretty-print    <img src="https://img.shields.io/badge/0.43-release-green.svg" alt="">
 
 ### Annotation Processor to pretty print your Activity / Fragment extras.
 
@@ -52,13 +52,13 @@ Add it as `maven` dependency, in case `maven` add it as below.
 
 ### Java
 ```groovy
-implementation 'com.karthik.pretty_annotation:pretty-annotation:0.4.1'
-annotationProcessor 'com.karthik.pretty_compiler:pretty-compiler:0.4.1'
+implementation 'com.karthik.pretty_annotation:pretty-annotation:0.4.3'
+annotationProcessor 'com.karthik.pretty_compiler:pretty-compiler:0.4.3'
 ```
 ### Kotlin
 replace `annotationProcessor` with `kapt` as shown below
 
 ```groovy
-implementation 'com.karthik.pretty_annotation:pretty-annotation:0.4.1'
-kapt 'com.karthik.pretty_compiler:pretty-compiler:0.4.1'
+implementation 'com.karthik.pretty_annotation:pretty-annotation:0.4.3'
+kapt 'com.karthik.pretty_compiler:pretty-compiler:0.4.3'
 ```
