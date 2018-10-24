@@ -1,5 +1,6 @@
 package com.karthik.pretty_compiler
 
+import com.jakewharton.fliptables.FlipTable
 import com.karthik.pretty_annotation.Pretty
 import com.squareup.javapoet.JavaFile
 import com.squareup.javapoet.MethodSpec
@@ -65,10 +66,10 @@ object CodeGenerator {
                 .beginControlFlow("for(String key:bundle.keySet())")
                 .addCode("col=0;\n valueKeys[row][col] = key;\n ++col;\n " + "valueKeys[row][col] = bundle.get(key).toString();\n ++row;\n")
                 .endControlFlow()
-                .addCode("valueKeys[bundle.keySet().size()][0]=\$S;\n", SIZE)
-                .addCode("valueKeys[bundle.keySet().size()][1]=getBundleSize(bundle);\n\n")
+                .addCode("valueKeys[bundle.keySet().size()][0]=\$S;\n",SIZE)
+                .addCode("valueKeys[bundle.keySet().size()][1]=getBundleSize(bundle)+\$S;\n\n"," Bytes")
                 .addCode("if(BuildConfig.DEBUG)\n")
-                .addStatement("\$T.d(\$S,\$T.of(headers,valueKeys))", LOG, "pretty", FLIPTABLE)
+                .addStatement("\$T.out.println(\$T.of(headers,valueKeys))",System::class.java, FlipTable::class.java)
                 .returns(Void.TYPE)
                 .build()
     }

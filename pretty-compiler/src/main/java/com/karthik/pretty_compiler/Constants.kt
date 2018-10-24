@@ -7,10 +7,7 @@ import com.squareup.javapoet.ClassName
  val PRINTERCLASSNAME = "PrettyPrinterExtras"
  val PRINTERMETHODNAME = "printExtras"
  val PRINTBUNDLESIZE = "getBundleSize"
- val SIZE = "SIZE(Bytes)"
+ val SIZE = "SIZE"
 
  val BUNDLE = ClassName.get("android.os","Bundle")
  val PARCEL = ClassName.get("android.os","Parcel")
- val LOG = ClassName.get("android.util","Log")
- val FLIPTABLE = ClassName.get("com.jakewharton.fliptables",
-        "FlipTable")

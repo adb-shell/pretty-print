@@ -16,7 +16,7 @@ publish {
     userOrg = 'nullpointerguy'
     groupId = 'com.karthik.pretty_compiler'
     artifactId = 'pretty-compiler'
-    publishVersion = '0.4.1'
+    publishVersion = '0.4.3'
     desc = 'Compiler for pretty annotation'
     website = 'https://github.com/NULLPointerGuy/PrettyExtras'
     bintrayUser= properties.getProperty("bintray.user")
