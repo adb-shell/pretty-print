@@ -1,28 +1,27 @@
 # pretty-print    <img src="https://img.shields.io/badge/0.43-release-green.svg" alt="">
 
-### Annotation Processor to pretty print your Activity / Fragment extras.
+### Annotation to pretty print your Activity / Fragment bundle.
 
 ### How to use
-PrettyPrinterExtras will be the name of the generated class,header name(given in the annotation) with postfix of printExtras will be the name of the method for that Activity / Fragment.
+Pretty print plugin will read the bundle parameter from any method annotated with `@Pretty`, and prints the bundle values and total size as shown in the below example.
 
 For eg:
 
 ```java
-@Pretty(headerName = "MainActivity")
-public class MyActivity extends Activity {
-
-	public void onCreate(Bundle savedInstanceState){
-		super.onCreate(savedInstanceState);
-		
-		int id = 123;
-		String title = "test";		
-		
-		//call to pretty print extras.		
-		PrettyPrinterExtras.MainActivityprintExtras(getIntent().getExtras());	
-	}
-}
+    @Pretty(headerName = "MainActivity")
+    private void intialize(Bundle extras) {
+        //intialization.
+    }
 ```
-and thats it, all the extras will be printed in your logcat as below.
+
+```kotlin
+  @Pretty(headerName = "KotlinClass")
+  private fun intialize(extras:Bundle) {
+        //intialization.
+   }
+```
+
+and all the extras will be printed in your logcat as below.
 
 ```
  ╔═══════════╤══════════════╗
@@ -45,22 +44,23 @@ and thats it, all the extras will be printed in your logcat as below.
 
 ```
 
-### Adding the dependency
-Add it as `maven` dependency, in case `maven` add it as below.  
+### Adding the plugin dependency
 
+#### 1.Add the classpath of the plugin as below
 ```groovy
- maven { url 'https://dl.bintray.com/nullpointerguy/maven/' }
+ buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.com.karthik:pretty-plugin:0.1"
+  }
+}
 ```
 
-### Java
+#### 2.Apply the plugin in your project.
 ```groovy
-implementation 'com.karthik.pretty_annotation:pretty-annotation:0.4.3'
-annotationProcessor 'com.karthik.pretty_compiler:pretty-compiler:0.4.3'
-```
-### Kotlin
-replace `annotationProcessor` with `kapt` as shown below
-
-```groovy
-implementation 'com.karthik.pretty_annotation:pretty-annotation:0.4.3'
-kapt 'com.karthik.pretty_compiler:pretty-compiler:0.4.3'
+apply plugin: "com.karthik.prettyprint"
 ```
