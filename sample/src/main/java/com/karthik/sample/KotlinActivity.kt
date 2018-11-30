@@ -7,12 +7,20 @@ import com.karthik.pretty_annotation.Pretty
 /**
  * Created by karthikrk on 25/03/18.
  */
-@Pretty(headerName = "KotlinClass")
-class KotlinActivity :AppCompatActivity(){
+
+open class KotlinActivity :AppCompatActivity(){
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
-        PrettyPrinterExtras.KotlinClassprintExtras(intent.extras)
+        intializeActivity(intent.extras)
+    }
+
+    @Pretty(headerName = "KotlinClass")
+    private fun intializeActivity(extras: Bundle) {
+        /**
+         * intialize the activity with arguments.
+         */
     }
 }

@@ -5,7 +5,7 @@ apply plugin: 'com.novoda.bintray-release'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly 'com.google.android:android:4.1.1.4'
+    implementation 'com.google.android:android:4.1.1.4'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api 'com.jakewharton.fliptables:fliptables:1.0.2'
 }

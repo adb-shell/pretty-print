@@ -1,5 +1,5 @@
 package com.karthik.pretty_annotation
 
-@Retention(AnnotationRetention.SOURCE)
-@Target(AnnotationTarget.CLASS)
+@Retention(AnnotationRetention.RUNTIME)
+@Target(AnnotationTarget.FUNCTION)
 annotation class Pretty(val headerName:String="")

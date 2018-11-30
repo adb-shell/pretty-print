@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.karthik.pretty_annotation.Pretty;
 
-@Pretty(headerName = "MainActivity")
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("hello","text");
         bundle.putString("world","text");
         bundle.putInt("number",2);
-        PrettyPrinterExtras.MainActivityprintExtras(bundle);
+        intializeActivity(bundle);
+
         findViewById(R.id.clickActivity).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         findViewById(R.id.clickKotlin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Pretty(headerName = "MainActivity")
+    private void intializeActivity(Bundle bundle) {
+        /**
+         * Initialize the activity with args.
+         */
     }
 
     @Override

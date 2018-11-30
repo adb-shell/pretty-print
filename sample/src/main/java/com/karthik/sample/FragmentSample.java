@@ -12,7 +12,7 @@ import com.karthik.pretty_annotation.Pretty;
 /**
  * Created by karthikrk on 25/03/18.
  */
-@Pretty(headerName = "FragmentExample")
+
 public class FragmentSample extends Fragment {
 
     @Nullable
@@ -21,9 +21,17 @@ public class FragmentSample extends Fragment {
         return inflater.inflate(R.layout.fragment_sample,container,false);
     }
 
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        PrettyPrinterExtras.FragmentExampleprintExtras(getArguments());
+        intializeFragment(getArguments());
+    }
+
+    @Pretty(headerName = "FragmentExample")
+    public void intializeFragment(Bundle args){
+        /**
+         * intialize the fragment with arguments.
+         */
     }
 }

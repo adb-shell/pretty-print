@@ -9,12 +9,21 @@ import com.karthik.pretty_annotation.Pretty;
 /**
  * Created by karthikrk on 25/03/18.
  */
-@Pretty(headerName = "SecondActivity")
+
 public class SecondActivity extends AppCompatActivity {
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        PrettyPrinterExtras.SecondActivityprintExtras(getIntent().getExtras());
+        intializeActivity(getIntent().getExtras());
+    }
+
+    @Pretty(headerName = "SecondActivity")
+    private void intializeActivity(Bundle args) {
+        /**
+         * Intailize the activity with args.
+         */
     }
 }

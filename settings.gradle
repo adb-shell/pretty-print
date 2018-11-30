@@ -1,1 +1,1 @@
-include ':pretty-annotation', ':pretty-compiler', ':sample'
+include ':pretty-annotation', ':sample', ':pretty-plugin', ':pretty-runtime'

@@ -1,0 +1,44 @@
+plugins {
+    id "com.gradle.plugin-publish" version "0.10.0"
+    id "java-gradle-plugin"
+}
+
+repositories {
+    jcenter()
+}
+
+version = "0.1"
+group = "com.karthik"
+
+pluginBundle {
+    website = 'https://github.com/NULLPointerGuy/pretty-print'
+    vcsUrl = 'https://github.com/NULLPointerGuy/pretty-print.git'
+    tags = ['pretty', 'print', 'your', 'bundle']
+    plugins {
+        prettyPrintPlugin {
+            displayName = 'Pretty print plugin'
+            description = 'pretty print your activity or fragment bundles.'
+        }
+    }
+}
+
+gradlePlugin {
+    plugins {
+        prettyPrintPlugin {
+            id = 'com.karthik.prettyprint'
+            description = 'pretty print your activity or fragment bundles.'
+            implementationClass = 'com.karthik.PrettyPlugin'
+        }
+    }
+}
+
+
+apply plugin: 'groovy'
+
+
+dependencies {
+    implementation gradleApi()
+    implementation 'com.android.tools.build:gradle:3.2.1'
+    implementation "org.aspectj:aspectjtools:$aspectj_version"
+    implementation "org.aspectj:aspectjrt:$aspectj_version"
+}
