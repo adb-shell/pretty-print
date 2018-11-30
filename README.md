@@ -1,4 +1,4 @@
-# pretty-print    <img src="https://img.shields.io/badge/0.43-release-green.svg" alt="">
+# pretty-print    <img src="https://img.shields.io/badge/0.10-release-green.svg" alt="">
 
 ### Annotation to pretty print your Activity / Fragment bundle.
 
