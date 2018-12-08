@@ -8,7 +8,7 @@ import com.karthik.pretty_annotation.Pretty
  * Created by karthikrk on 25/03/18.
  */
 
-open class KotlinActivity :AppCompatActivity(){
+class KotlinActivity :AppCompatActivity(){
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

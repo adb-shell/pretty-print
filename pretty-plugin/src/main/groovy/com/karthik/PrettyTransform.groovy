@@ -20,6 +20,10 @@ class PrettyTransform extends Transform{
         this.project = p
     }
 
+    /**
+     * Heavy lifting happens in this method
+     *
+     */
     @Override
     void transform(TransformInvocation transformInvocation) throws TransformException, InterruptedException, IOException {
 
@@ -82,7 +86,7 @@ class PrettyTransform extends Transform{
             args << classpath
         }
 
-        // run aspectj
+
         MessageHandler handler = new MessageHandler(true)
         new Main().run(args as String[], handler)
 
@@ -106,22 +110,35 @@ class PrettyTransform extends Transform{
         }
     }
 
+    /**
+     * Unique name of the transform.
+     */
     @Override
     String getName() {
         return "pretty"
     }
 
+    /**
+     * This method will return the input types on which pretty transform will work on.
+     */
     @Override
     Set<QualifiedContent.ContentType> getInputTypes() {
         return Sets.immutableEnumSet(QualifiedContent.DefaultContentType.CLASSES)
     }
 
+    /**
+     * Folders where this transform has to be applied
+     * may also be sub projects,external libraries etc.
+     */
     @Override
     Set<? super QualifiedContent.Scope> getScopes() {
         return Sets.immutableEnumSet(QualifiedContent.Scope.PROJECT,
                 QualifiedContent.Scope.EXTERNAL_LIBRARIES)
     }
 
+    /**
+     * Since we require the classpaths of referenced classes as arg for ajc compiler
+     */
     @Override
     Set<? super QualifiedContent.Scope> getReferencedScopes() {
         return Sets.immutableEnumSet(
@@ -130,6 +147,10 @@ class PrettyTransform extends Transform{
                 QualifiedContent.Scope.PROVIDED_ONLY)
     }
 
+    /**
+     * Task will be run once only assuming its output and input has not changed.
+     * Does the pretty transform support incremental builds?
+     */
     @Override
     boolean isIncremental() {
         return false

@@ -13,11 +13,14 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
-        classpath 'com.novoda:bintray-release:0.6.1'
-        classpath "org.aspectj:aspectjtools:$aspectj_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
-        classpath 'com.github.dcendents:android-maven-plugin:1.2'
+
+        //aspect tools.
+        classpath "org.aspectj:aspectjtools:$aspectj_version"
+
+        //release plugins
+        classpath 'com.novoda:bintray-release:0.6.1'
+
         classpath "gradle.plugin.com.karthik:pretty-plugin:0.1"
     }
 }

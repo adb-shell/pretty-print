@@ -30,9 +30,6 @@ android {
 
 }
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
 android.libraryVariants.all { variant ->
 
     JavaCompile javaCompile = variant.javaCompile
