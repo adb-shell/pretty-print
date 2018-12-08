@@ -64,3 +64,6 @@ and all the extras will be printed in your logcat as below.
 ```groovy
 apply plugin: "com.karthik.prettyprint"
 ```
+
+#### Credits
+Pretty Print drew a huge inspiration from the Jake Wharton's Hugo and Can Elmas Let Libraries.
