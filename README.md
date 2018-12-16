@@ -1,4 +1,4 @@
-# pretty-print    <img src="https://img.shields.io/badge/0.10-release-green.svg" alt="">
+# pretty-print    <img src="https://img.shields.io/badge/0.20-release-green.svg" alt="">
 
 ### Annotation to pretty print your Activity / Fragment bundle.
 
@@ -55,7 +55,7 @@ and all the extras will be printed in your logcat as below.
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.karthik:pretty-plugin:0.1"
+    classpath "gradle.plugin.com.karthik:pretty-plugin:0.2"
   }
 }
 ```
@@ -65,9 +65,8 @@ and all the extras will be printed in your logcat as below.
 apply plugin: "com.karthik.prettyprint"
 ```
 
-#### TODO Features in upcomming releases:
+#### TODO Feature in upcomming release:
 1. - [ ] Printing Custom objects, not only primitives.
-2. - [ ] Make pretty Plugin variant aware, for no-op on release builds (basically config to turn it on and off.)
 
 #### Credits
 Pretty Print drew a huge inspiration from the Jake Wharton's Hugo and Can Elmas Let Libraries.
