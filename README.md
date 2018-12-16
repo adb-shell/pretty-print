@@ -65,9 +65,9 @@ and all the extras will be printed in your logcat as below.
 apply plugin: "com.karthik.prettyprint"
 ```
 
-#### Major TODO's:
-1. Printing Custom objects, not only primitives.
-2. Make pretty Plugin variant aware, for no-op on release builds.
+#### TODO Features in upcomming releases:
+1. - [ ] Printing Custom objects, not only primitives.
+2. - [ ] Make pretty Plugin variant aware, for no-op on release builds (basically config to turn it on and off.)
 
 #### Credits
 Pretty Print drew a huge inspiration from the Jake Wharton's Hugo and Can Elmas Let Libraries.
