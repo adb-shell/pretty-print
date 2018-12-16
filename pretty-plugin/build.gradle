@@ -41,4 +41,5 @@ dependencies {
     implementation 'com.android.tools.build:gradle:3.2.1'
     implementation "org.aspectj:aspectjtools:$aspectj_version"
     implementation "org.aspectj:aspectjrt:$aspectj_version"
+    implementation 'commons-io:commons-io:2.4'
 }

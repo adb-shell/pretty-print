@@ -12,6 +12,8 @@ class PrettyPlugin implements Plugin<Project>{
     void apply(Project pro) {
         makeSureProjectIsAndroidAppOrLib(pro)
 
+        pro.extensions.add("prettyEx",PrettyPluginExtension)
+
         pro.android.registerTransform(new PrettyTransform(pro))
 
         pro.repositories {
