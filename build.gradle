@@ -21,7 +21,7 @@ buildscript {
         //release plugins
         classpath 'com.novoda:bintray-release:0.6.1'
 
-        classpath "gradle.plugin.com.karthik:pretty-plugin:0.1"
+        classpath "gradle.plugin.com.karthik:pretty-plugin:0.2"
     }
 }
 

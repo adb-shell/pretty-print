@@ -29,9 +29,9 @@ android {
 
 }
 
-/*prettyEx{
+prettyEx{
     enabled = true
-}*/
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
