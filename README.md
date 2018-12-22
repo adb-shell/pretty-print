@@ -65,7 +65,7 @@ and all the extras will be printed in your logcat as below.
 apply plugin: "com.karthik.prettyprint"
 ```
 
-#### TODO Feature in upcomming release:
+#### Limitation and a TODO feature in upcomming release:
 1. - [ ] Printing Custom objects, not only primitives.
 
 #### Credits
